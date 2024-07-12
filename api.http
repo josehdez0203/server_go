@@ -1,0 +1,26 @@
+# Login user
+POST http://localhost:8080/users/login
+Content-Type: application/json
+
+{
+  "username": "jose",
+  "password": "123456"
+}
+
+# Create user
+POST http://localhost:8080/users/
+Content-Type: application/json
+
+{
+  "email":"jose@gmail.com",
+  "full_name":"Jose Hernandez",
+  "username": "jose",
+  "password": "123456"
+}
+
+POST http://localhost:8080/tokens/renew_access/
+Content-Type: application/json
+
+{
+  "refresh_token":"v2.local.oME2y1tE6vtemtWdwiEzyU9x8mgmqAmBunIAGbWzsKeOSREYLftxS9X9RZKOBmRXMookCeJn8X4loRrvuRT89Y0xK0Zu5lu7950sAPa0dZjFts3Aq-8xcvefYupYUP1_MXRGSSbxm_vGcIfBGfM2FrzdA0ZaDcLLSFkilkx5sIpWmCdxchU3h-w008kGuUH92iyIShPBe5eMsoW2tck6kW8QetDJoGMtjVntyXgWNoxw6tMp5gLO-gsPr_mk-qZaPy8O2fM4kZR52wcY.bnVsbA"
+}
