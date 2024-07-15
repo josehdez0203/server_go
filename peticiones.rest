@@ -1,0 +1,66 @@
+### Crear usuario
+host
+http://localhost:8080
+
+# Curl options
+--silent
+# --include
+
+
+# headers
+Accept: application/json
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+User-Agent: VRC
+
+# query 
+
+POST /users
+{
+  "name":"Dolores",
+  "lastname":"Arredondo Olloqui",
+  "email":"dolores@gmail.com",
+  "password":"123456",
+  "phone":"353 101 1995"
+}
+# ---
+### Login
+host
+http://localhost:8080
+
+# Curl options
+--silent
+# --include
+
+
+# headers
+Accept: application/json
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+User-Agent: VRC
+
+# query 
+
+POST /users/login
+{
+"email":"josehdez@hotmail.com",
+"password":"123456"
+}
+---
+### renew_access
+http://localhost:8080
+
+# headers
+Accept: application/json
+Connection: keep-alive
+Content-Type: application/json; charset=utf-8
+User-Agent: VRC
+
+
+--include
+# query 
+POST /tokens/renew_access
+{
+"refresh_token":"v2.local.FZ7Rmnf7Zea_wseOMignTXTd8ziKPPF99mW39k9fCpJ-Fc4jOC4CMFGfQLRVydfVuGCcebhFVwcygxWN1vxjKB0cqt7NnJFI4WFLqtU7codfbsgd0xJCYNFhCw3vwADuXErnId870AZFH21BjSLofH0y-xdKZ6RQnLBSFrTt-jLJOHgJF488kxuN_xIbUMezK0MQ0GXrvWRCOGWgovBadqjvZ7Ytt91TWhfD2d1186Dad7Nm5pOBeNSFFU3xF3uFhsGDWTuruMkHlJ0ucSsGqSdvAeSm3nZgQA.bnVsbA"
+}
+

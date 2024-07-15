@@ -18,11 +18,13 @@ type createUserRequest struct {
 	Name     string `json:"name" binding:"required,alphanum"`
 	Lastname string `json:"lastname" binding:"required"`
 	Password string `json:"password" binding:"required,min=6"`
+	Phone    string `json:"phone" binding:"required"`
 }
 type userResponse struct {
 	Email     string    `json:"email"`
 	Name      string    `json:"name"`
 	Lastname  string    `json:"lastname"`
+	Phone     string    `json:"phone"`
 	CreatedAt time.Time `json:"created_at"`
 }
 
@@ -31,6 +33,7 @@ func newUserResponse(user db.User) userResponse {
 		Email:     user.Email,
 		Name:      user.Name,
 		Lastname:  user.Lastname,
+		Phone:     user.Phone,
 		CreatedAt: user.CreatedAt,
 	}
 }
@@ -53,6 +56,7 @@ func (server *Server) createUser(ctx *gin.Context) {
 		Name:     req.Name,
 		Password: hashedPassword,
 		Lastname: req.Lastname,
+		Phone:    req.Phone,
 	}
 
 	user, err := server.store.CreateUser(ctx, arg)
