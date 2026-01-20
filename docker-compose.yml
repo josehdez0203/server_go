@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: ${DB_VERSION}
+    container_name: ${APP_NAME}
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${APP_DB}
+    # logging:
+    #   options:
+    #     max-size: 10m
+    #     max-file: "3"
+    ports:
+      - "${DB_PUERTO}:${DB_PUERTO}"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+      # - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+volumes:
+  postgres-data:
